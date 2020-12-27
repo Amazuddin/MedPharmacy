@@ -1,0 +1,157 @@
+﻿@using MedPharmacy.Models
+@{
+    //Layout = null;
+    Register phamval = ViewBag.Patient;
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+   
+    <link href="~/Content/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-all.min.css" rel="stylesheet"/>
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="//db.onlinewebfonts.com/c/e662339992c4abf5b43f537391bd3169?family=Candara" rel="stylesheet" type="text/css" />
+    <link href="http://allfont.net/allfont.css?fonts=josefin-sans" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=BioRhyme' rel='stylesheet'>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            float: right;
+            font-family: Comic Sans MS;
+        }
+
+            input[type=submit]:hover {
+                background-color: orangered;
+                transition-duration: 5s;
+            }
+
+        .container {
+            margin-top: 50px;
+            border-radius: 40px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            box-shadow: 0px 0px 30px 0px blueviolet;
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+            font-family: Candara;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+            font-family: Candara;
+            font-weight: bold;
+           
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        @@media screen and (max-width: 600px) {
+            .col-25, .col-75, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+
+        .pha_pro {
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        #ourpro {
+            font-size: 80px;
+            color: purple;
+        }
+            #ourpro:hover {
+                color: mediumorchid;
+                 transition-duration: 5s;
+            }
+    </style>
+</head>
+<body>
+   
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class=" animated flipInX pha_pro">
+                <center>
+
+                    <i class="fa fa-users" id="ourpro"></i>
+                </center>
+            </div>
+            <form action="ProfileUpdate" method="POST">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="inputName">Pharmacy Name</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="inputName" placeholder="Pharmacy Name" value="@phamval.PharmacyName" disabled="">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="Address">Address</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="Address" placeholder="Address" value="@phamval.Address" disabled="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="Mobile">Mobile</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="Mobile" placeholder="Mobile" value="@phamval.PhoneNo" disabled="">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <input type="submit" value="Update Profile">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+</div>
+
+
+
+</body>

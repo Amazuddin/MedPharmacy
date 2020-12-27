@@ -1,0 +1,131 @@
+﻿@{
+    //Layout = null;
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminLogin</title>
+    <link href="~/Content/loginstyle.css" rel="stylesheet" />
+
+    <link href="~/Content/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="//db.onlinewebfonts.com/c/e662339992c4abf5b43f537391bd3169?family=Candara" rel="stylesheet" type="text/css" />
+    <link href="http://allfont.net/allfont.css?fonts=josefin-sans" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=BioRhyme' rel='stylesheet'>
+    <link href="//db.onlinewebfonts.com/c/7cc6719bd5f0310be3150ba33418e72e?family=Comic+Sans+MS" rel="stylesheet" type="text/css" />
+    <style>
+        .warning {
+            text-align: center;
+            font-size: 30px;
+            background-color: green;
+            font-family: Josefin Sans;
+        }
+    </style>
+</head>
+<body>
+    <div class="limiter">
+        <center>
+            <h1 style="padding-top: 50px; color: black; font-size: 40px; font-family: Candara">Admin LogIn</h1>
+        </center>
+        @if (ViewBag.Error != null)
+        {
+            <div class="warning" id="warningLabel">
+                <label>Login Failed</label>
+            </div>
+        }
+        <div class="container-login100">
+
+            <div class="wrap-login100">
+
+                <div class="login100-pic js_tilt">
+                    <img src="~/picture/log.svg" alt="IMG">
+                </div>
+
+                <form class="login100-form validate-form" action="AdminLogin" method="POST" id="login">
+                    <span class="login100-form-title" style="font-family: BioRhyme;">
+                        Admin Login
+                    </span>
+
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" name="Email" id="Email" placeholder="Email" required="">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <p class='elabel1'></p>
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="password" name="Password" id="Password" placeholder="Password" required="">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <p class='elabel2'></p>
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
+
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+@section scripts
+    {
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            setTimeout(function () {
+                $("#warningLabel").hide(1000).empty();
+            }, 5000);
+
+            $("#login").validate({
+
+                rules: {
+                    Email: {
+                        required: true,
+                        email: true
+                    },
+                    Password: {
+                        required: true
+
+                    }
+                },
+                messages: {
+                    Email: {
+                        required: "Please Enter Your Email",
+                        email: "Email is not correct"
+                    },
+                    Password: {
+                        required: "Please Enter Your Password"
+
+                    }
+
+                },
+                errorPlacement: function (error, element) {
+                    if (element.is(":text")) {
+                        error.appendTo(('.elabel1'));
+                    } else if (element.is(":password")) {
+                        error.appendTo(('.elabel2'));
+                    }
+                }
+
+
+            });
+
+        });
+
+    </script>
+}

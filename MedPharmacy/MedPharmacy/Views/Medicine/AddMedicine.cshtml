@@ -1,0 +1,201 @@
+﻿@using MedPharmacy.Models
+@{
+    //Layout = null;
+   
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddMedicine</title>
+
+    <link href="~/Content/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="//db.onlinewebfonts.com/c/e662339992c4abf5b43f537391bd3169?family=Candara" rel="stylesheet" type="text/css" />
+    <link href="http://allfont.net/allfont.css?fonts=josefin-sans" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=BioRhyme' rel='stylesheet'>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            resize: vertical;
+            
+        }
+
+        input[type=email], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #CB4A1A;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            float: right;
+            font-family: Comic Sans MS;
+        }
+
+            input[type=submit]:hover {
+                background-color: orangered;
+                transition-duration: 5s;
+            }
+
+        .container {
+            margin-top: 50px;
+            border-radius: 0px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            box-shadow: 0px 0px 30px 0px blueviolet;
+            
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+            font-family: Candara;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+            font-family: Candara;
+            font-weight: bold;
+            
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        @@media screen and (max-width: 600px) {
+            .col-25, .col-75, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+
+        .yest {
+            margin-top: 30px;
+            
+        }
+        .sdr {
+            margin-top: 10px;
+        }
+        .warning {
+            text-align: center;
+            font-size: 30px;
+            background-color: orangered;
+            font-family: Josefin Sans;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <h1 style="font-family: BioRhyme; margin-top: 20px;"> Add Medicine</h1>
+</center>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 ">
+            <center>
+                <h2 style="font-family: josefin sans; margin-top: 10px;"> Add Medicine into Pharmacy</h2>
+            </center>
+            <div class="yest">
+                <center>
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="warning" id="warningLabel">
+                            <label>Something Wrong!!!!</label>
+                        </div>
+                    }
+                    else if (ViewBag.Yes == '1')
+                    {
+                        <div class="warning" id="warningLabel">
+                            <label>Successfully Inserted</label>
+                        </div>
+                    }
+                </center>
+                <form action="AddMedicine" method="POST">
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="inputName">Medicine Name</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="inputName" placeholder="Medicine Name" name="MedicineName" value="" required="">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="Price">Price</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="Price" placeholder="Price" name="Price" value="" required="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="Disease">Disease</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="Disease" placeholder="Disease" name="Disease" value="" required="">
+                        </div>
+                    </div>
+                    <div class="row sdr">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+</div>
+
+
+
+</body>
+@section scripts
+{
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("#warningLabel").hide(1000).empty();
+            }, 5000);
+
+
+           
+        });
+
+    </script>
+}
+

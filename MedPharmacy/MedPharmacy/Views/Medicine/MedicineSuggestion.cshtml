@@ -1,0 +1,61 @@
+﻿@using MedPharmacy.Models
+
+@{
+    //Layout = null;
+}
+
+<style>
+    
+
+    .res {
+        border-radius: 1px 15px;
+        padding: 20px;
+        margin: 3em 0;
+    }
+
+    .my {
+        margin-top: 80px;
+        text-align: center;
+        padding: 1em;
+        background-color: #95a4b2;
+        font-weight: 800;
+        font-size: 28px;
+    }
+    .mymed {
+        margin-top: 80px;
+        text-align: center;
+        padding: 1em;
+        background-color: #7abf61;
+        font-weight: 800;
+        font-size: 28px;
+    }
+   
+</style>
+
+<div class="container">
+    <form action="MedicineSuggestion" method="post">
+        <p class="my">Select Problems</p>
+        <div class="row">
+            @foreach (Problems s in ViewBag.Problems)
+            {
+                <div class="col-md-3">
+                    <input type="checkbox" name="sym" value="@s.Id" /> @s.Name
+                </div>
+                
+            }
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <input type="submit" class="btn btn-primary" style="width: 100%; height: 60px; margin-top: 4em;" name="submit" value="Show Medicine"/>
+            </div>
+            <div class="col-md-4"></div>
+            </div>
+    </form>
+    @if (ViewBag.Message != null)
+    {
+        <div class="res">
+            <p class="mymed">Medicine Name: @ViewBag.Message</p>
+        </div>
+    }
+
+</div>
+

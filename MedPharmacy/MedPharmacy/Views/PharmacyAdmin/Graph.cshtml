@@ -1,0 +1,285 @@
+﻿@{
+    //Layout = null;
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Reciption</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        #school-avail-head {
+            font-size: 48px;
+            border-bottom-style: ridge;
+            font-weight: bold;
+            border-bottom-style: black;
+        }
+
+        .school-avail {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .schoolimg-div {
+            height: 450px;
+            /*background-color: none;*/
+        }
+
+        .kkja {
+            margin-top: 100px;
+        }
+
+            .kkja h2 {
+                color: darkcyan;
+            }
+
+            .kkja h3 {
+                margin-bottom: 1em;
+            }
+
+        .lf {
+            color: #4dabf7;
+        }
+
+        .mont {
+            font-size: 22px;
+            padding-right: 12px;
+        }
+
+        #month {
+            width: 235px;
+            border: 2px solid #2c3e50;
+            border-radius: 10px;
+            height: 45px;
+        }
+
+        .sub {
+            width: 120px;
+            height: 40px;
+            font-size: 17px;
+            margin-top: 10px;
+            background-color: cadetblue;
+            color: white;
+            border-radius: 7px;
+            border-color: cadetblue;
+        }
+
+            .sub:hover {
+                background-color: blueviolet;
+                border-color: blueviolet;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="school-avail">
+            <center>
+                <strong id="school-avail-head">Information</strong>
+            </center>
+        </div>
+        <br><br>
+     
+    </div>
+</body>
+<center>
+    <form action="@Url.Action("Graph")" method="POST">
+        <table>
+            <tr>
+                <td class="mont">Month: </td>
+                <td>
+                    <select id="month" name="dt" class="form-control" required>
+                        <option value="">Select Month</option>
+                        <option value="01">January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">Augest</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Search" class="sub" />
+                </td>
+            </tr>
+        </table>
+    </form><br />
+    <div class="container">
+        <div class="row">
+           
+            <div class="col-md-12">
+                <div id="printableArea">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</center>
+
+
+
+@section scripts
+{
+    <script src="~/Scripts/Chart.min.js"></script>
+    <script>
+    var data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var a=0;
+    if ("@ViewBag.Data" != "") {
+        data = JSON.parse('@ViewBag.Data');
+
+        if ("@ViewBag.mon" === "01" || "@ViewBag.mon" === "03" || "@ViewBag.mon" === "05" || "@ViewBag.mon" ==="07" || "@ViewBag.mon" ==="08" ||
+            "@ViewBag.mon" ==="10" ||"@ViewBag.mon" ==="12" ) {
+            a = 31;
+
+        }
+       else if ("@ViewBag.mon" === "04" || "@ViewBag.mon" === "06" || "@ViewBag.mon" === "09" || "@ViewBag.mon" === "11" ) {
+            a = 30;
+
+        }
+    else {
+        a = 28;
+    }
+
+    }
+
+
+
+    var myChart;
+    $(document).ready(function () {
+       
+        var ara = new Array;
+
+
+        for (var i = 1; i <= a; i++) {
+            ara[i - 1] = i + "/" + "@ViewBag.mon" + "/20";
+        }
+
+        var db = document.getElementById('myChart');
+        //var dt = [15, 10, 6,  7, 25, 16];
+        myChart = new Chart(db, {
+            type: 'bar',
+            data: {
+                labels: ara,
+                datasets: [
+                    {
+                        label: 'Number of Customer',
+                        data: data,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)',
+                                'rgba(54, 162, 235, 0.5)',
+                                'rgba(255, 206, 86, 0.5)',
+                                'rgba(75, 192, 192, 0.5)',
+                                'rgba(153, 102, 255, 0.5)',
+                                'rgba(255, 159, 64, 0.5)',
+                                'rgba(99, 255, 222,0.5)',
+                                'rgba(0, 178, 117,0.5)',
+                                'rgba(160, 158, 26,0.5)',
+                                'rgba(38, 228, 17,0.5)',
+                                'rgba(20, 50, 17,0.5)',
+                                'rgba(20, 50, 91,0.5)',
+                                'rgba(174, 139, 91,0.5)',
+                                'rgba(88, 67, 138,0.5)',
+                                'rgba(4, 167, 4,0.5)',
+                                'rgba(255, 99, 132, 0.5)',
+                                'rgba(54, 162, 235, 0.5)',
+                                'rgba(255, 206, 86, 0.5)',
+                                'rgba(75, 192, 192, 0.5)',
+                                'rgba(153, 102, 255, 0.5)',
+                                'rgba(255, 159, 64, 0.5)',
+                                'rgba(99, 255, 222,0.5)',
+                                'rgba(0, 178, 117,0.5)',
+                                'rgba(160, 158, 26,0.5)',
+                                'rgba(38, 228, 17,0.5)',
+                                'rgba(20, 50, 17,0.5)',
+                                'rgba(20, 50, 91,0.5)',
+                                'rgba(174, 139, 91,0.5)',
+                                'rgba(88, 67, 138,0.5)',
+                                'rgba(4, 167, 4,0.5)',
+                                'rgba(255, 99, 132, 0.5)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(99, 255, 222,1)',
+                                    'rgba(	0, 178, 117,1)',
+                                    'rgba(160, 158, 26,1)',
+                                    'rgba(38, 228, 17,1)',
+                                    'rgba(20, 50, 17,1)',
+                                    'rgba(20, 50, 91,1)',
+                                    'rgba(174, 139, 91,1)',
+                                    'rgba(88, 67, 138,1)',
+                                    'rgba(4, 167, 4,1)',
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(99, 255, 222,1)',
+                                    'rgba(	0, 178, 117,1)',
+                                    'rgba(160, 158, 26,1)',
+                                    'rgba(38, 228, 17,1)',
+                                    'rgba(20, 50, 17,1)',
+                                    'rgba(20, 50, 91,1)',
+                                    'rgba(174, 139, 91,1)',
+                                    'rgba(88, 67, 138,1)',
+                                    'rgba(4, 167, 4,1)',
+                                    'rgba(255, 99, 132, 1)'
+                        ],
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [
+                        {
+                            barPercentage: 0.5,
+                            barThickness: 6,
+                            maxBarThickness: 8,
+                            minBarLength: 2,
+                            gridLines: {
+                                offsetGridLines: true
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Customer'
+                            }
+                        }
+                    ],
+                    xAxes: [
+                        {
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Date'
+                            }
+                        }
+                    ]
+                },
+                title: {
+                    display: true,
+                    text: 'Monthly Order Chart'
+                }
+            }
+        });
+    });
+
+    </script>
+}
+

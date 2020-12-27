@@ -1,0 +1,160 @@
+﻿@{
+    //Layout = null;
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+    <link href="~/Content/fontawesome-all.min.css" rel="stylesheet"/>
+    <link href="~/Content/aos.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="//db.onlinewebfonts.com/c/7cc6719bd5f0310be3150ba33418e72e?family=Comic+Sans+MS" rel="stylesheet" type="text/css" />
+    <link href="http://allfont.net/allfont.css?fonts=josefin-sans" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=BioRhyme' rel='stylesheet'>
+    <title>Contact</title>
+    <style>
+        .site-section {
+            padding: 2.5em 0;
+        }
+
+        @@media (min-width: 768px) {
+            .site-section {
+                padding: 5em 0;
+            }
+        }
+
+        .warning {
+            text-align: center;
+            font-size: 30px;
+            background-color: orangered;
+        }
+        .mb-0 {
+            font-family: Josefin Sans;
+        }
+        .spa {
+            font-family: BioRhyme;
+        }
+        .mb-4 {
+            font-family: Josefin Sans;
+            font-weight: bold;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="site-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="h3 mb-5 text-black get" style="font-family: BioRhyme">Get In Touch</h2>
+                </div>
+                <div class="col-md-12">
+
+                    <form id="contactformid" action="Contact" method="POST">
+                        @if (ViewBag.Yes == '1')
+                        {
+                            <div class="warning" id="warningLabel">
+                                <label>Send Successfully</label>
+                            </div>
+                        }
+                        <div class="p-3 p-lg-5 border">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="c_fname" class="text-black">First Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="c_fname" name="FirstName">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="c_lname" name="LastName">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label for="c_email" class="text-black">Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="c_email" name="Email" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label for="c_subject" class="text-black">Subject </label>
+                                    <input type="text" class="form-control" id="c_subject" name="Subject">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label for="c_message" class="text-black">Message </label>
+                                    <textarea name="Message" id="c_message" cols="30" rows="7" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-12">
+                                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Send Message">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+<div class="site-section bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-white mb-4">Offices</h2>
+            </div>
+            <div class="col-lg-4" data-aos="fade-right" data-aos-duration="2300">
+                <div class="p-4 bg-white mb-3 rounded">
+                    <span class="d-block text-black h6 text-uppercase spa">Chittagong</span>
+                    <p class="mb-0">203 Fake St. Rahmat View, Beparipara, Chittagong, Bangladesh</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="p-4 bg-white mb-3 rounded" data-aos="fade-left" data-aos-duration="2300">
+                    <span class="d-block text-black h6 text-uppercase spa">Dhaka</span>
+                    <p class="mb-0">203 Fake St. Rahmat View, Beparipara, Dhaka, Bangladesh</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="p-4 bg-white mb-3 rounded" data-aos="fade-right" data-aos-duration="2300">
+                    <span class="d-block text-black h6 text-uppercase spa">Rajshahi</span>
+                    <p class="mb-0">203 Fake St. Rahmat View, Beparipara, Rajshahi, Bangladesh</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    <script src="~/Scripts/aos.js"></script>
+    <script>
+
+        AOS.init();
+    </script>
+</body>
+@section scripts
+{
+
+
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("#warningLabel").hide(1000).empty();
+            }, 5000);
+
+
+        });
+
+
+    </script>
+}

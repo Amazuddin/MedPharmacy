@@ -1,0 +1,167 @@
+﻿
+@{
+    //Layout = null;
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registration</title>
+    <link href="~/Content/registration.css" rel="stylesheet"/>
+    <link href="//db.onlinewebfonts.com/c/e662339992c4abf5b43f537391bd3169?family=Candara" rel="stylesheet" type="text/css"/>
+    <link href="//db.onlinewebfonts.com/c/7cc6719bd5f0310be3150ba33418e72e?family=Comic+Sans+MS" rel="stylesheet" type="text/css"/>
+    <link href="http://allfont.net/allfont.css?fonts=josefin-sans" rel="stylesheet" type="text/css" />
+    <style>
+        .warning {
+            text-align: center;
+            font-size: 30px;
+            background-color: orangered;
+            font-family: Josefin Sans;
+        }
+    </style>
+</head>
+<body>
+    <div class="regi">
+        <div class="container">
+            <h2 style="padding-top: 60px; font-size: 40px; font-family: Candara">Registration</h2>
+
+            <div class=" w3l-login-form kk">
+                <center>
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="warning" id="warningLabel">
+                            <label>@ViewBag.Error</label>
+                        </div>
+                    }
+                    else if (ViewBag.Yes == '1')
+                    {
+                        <div class="warning" id="warningLabel">
+                            <label>Register Successful, Please Login</label>
+                        </div>
+                    }
+                </center>
+
+                
+                <form action="@Url.Action("Registration","UserLogin")" method="POST" id="registerPharmacy">
+
+                    <div class=" w3l-form-group">
+                        <label>Pharmacy Name:</label>
+                        <div class="group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" class="form-control" placeholder="Pharmacy Name" id="Name" name="PharmacyName" required="required" />
+                        </div>
+                    </div>
+
+
+                    <div class=" w3l-form-group">
+                        <label>Address:</label>
+                        <div class="group">
+                            <i class="fas fa-address-book"></i>
+
+                            <input type="text" class="form-control" placeholder="Address" id="Address" name="Address" required="required" />
+                        </div>
+                    </div>
+                    <div class=" w3l-form-group">
+                        <label>Phone Number:</label>
+                        <div class="group">
+                            <i class="fas fa-phone"></i>
+                            <input type="text" class="form-control" placeholder="PhoneNo" id="PhoneNo" name="PhoneNo" required="required" />
+                        </div>
+                    </div>
+                    <div class=" w3l-form-group">
+                        <label>Email:</label>
+                        <div class="group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" class="form-control" placeholder="Email " id="Email" name="Email" required="required" />
+                        </div>
+                    </div>
+
+                    <div class=" w3l-form-group">
+                        <label>Password:</label>
+                        <div class="group">
+                            <i class="fas fa-unlock"></i>
+                            <input type="password" class="form-control" placeholder="Password " id="Password" name="Password" required="required" />
+                        </div>
+                    </div>
+                    <div class=" w3l-form-group">
+                        <label>Confirm Password:</label>
+                        <div class="group">
+                            <i class="fas fa-unlock"></i>
+                            <input type="password" class="form-control" placeholder="Confirm Password " id="ConfirmPassword" name="ConfirmPassword" required="required" />
+                        </div>
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+               
+            </div>
+
+
+
+        </div>
+    </div>
+</body>
+@section scripts
+{
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("#warningLabel").hide(1000).empty();
+            }, 5000);
+
+
+            $("#registerPharmacy").validate({
+                rules: {
+                    Name: "required",
+                    Email: {
+                        required: true,
+                        email: true
+                    },
+                    Password: {
+                        required: true,
+                        minlength: 6
+                    },
+                    ConfirmPassword: {
+                        minlength: 6,
+                        equalTo: "#Password"
+                    },
+                    PhoneNo: {
+                        required: true,
+                        number: true
+                    },
+                   
+                    Address: "required"
+
+
+                },
+                messages: {
+                    Name: "Please Enter Your Name",
+                   
+                    PhoneNo: {
+                        required: "Please Enter Your Phone Number",
+                        number: "Number must avoid cahracter"
+                    },
+                    Email: {
+                        required: "Please Enter Your Email",
+                        email: "Email is not correct"
+                    },
+                    Password: {
+                        required: "Please Enter Your Password",
+                        minlength: "Minimum length is 6"
+                    },
+                    ConfirmPassword: {
+                        minlength: "Minimum length is 6",
+                        equalTo: "Password not matched"
+                    },
+
+
+                    Address: "Please Enter your Address"
+
+                }
+            });
+        });
+
+    </script>
+}
+

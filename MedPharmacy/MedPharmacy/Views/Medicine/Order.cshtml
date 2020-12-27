@@ -1,0 +1,102 @@
+﻿@{
+    //Layout = null;
+}
+
+
+<meta name="viewport" content="width=device-width" />
+<link href="~/Content/bootstrap-datepicker.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-datepicker.css" rel="stylesheet"/>
+<link href="//db.onlinewebfonts.com/c/7cc6719bd5f0310be3150ba33418e72e?family=Comic+Sans+MS" rel="stylesheet" type="text/css" />
+<link href="http://allfont.net/allfont.css?fonts=josefin-sans" rel="stylesheet" type="text/css" />
+<link href='https://fonts.googleapis.com/css?family=BioRhyme' rel='stylesheet'>
+<title>Order</title>
+<style>
+    .error {
+        color: red;
+    }
+
+    .pk {
+        color: white;
+    }
+
+    .warning {
+        text-align: center;
+        font-size: 30px;
+        background-color: orangered;
+    }
+    .pk {
+        font-family: Josefin Sans;
+        font-weight: bold;
+        font-size: 40px;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form style="background-color: #02646f; margin-top: 50px; " class="text-center border border-light p-5" id="orderform" action="Order" method="POST">
+                @if (ViewBag.Yes == '1')
+                {
+                    <div class="warning" id="warningLabel">
+                        <label>Order Send Successfully</label>
+                    </div>
+                }
+                <p class="h4 mb-4 pk">Order Form</p>
+
+                <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name" name="CustomerName" required="">
+
+                <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail" name="Email" required="">
+
+                <input type="text" id="defaultContactFormMobile" class="form-control mb-4" placeholder="Number" name="MobileNumber" required="">
+
+                <input type="text" id="defaultContactFormAddress" class="form-control mb-4" placeholder="Address" name="Address" required="">
+
+                <input type="text" id="defaultContactFormTestName" class="form-control mb-4" placeholder="Medicine Name" name="MedicineName" value="@ViewBag.Data">
+
+                <input type="number" id="defaultContactFormnumber" class="form-control mb-4" placeholder="Number of Medicine" name="MedicineAmount">
+
+                <input type="text" id="defaultContactFormprice" class="form-control mb-4" placeholder="Price" name="Price" value="@ViewBag.Data2">
+
+                <input id="defaultContactDate" class="form-control mb-4" type="text" name="Date" placeholder="Date" class="form-control" autocomplete="off">
+
+                <button class="btn btn-info btn-block" type="submit">Send</button>
+
+            </form>
+        </div>
+
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+@section scripts
+{
+
+
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("#warningLabel").hide(1000).empty();
+            }, 5000);
+
+            var asiaTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" });
+            var date = new Date(asiaTime);
+            $('#defaultContactDate').datepicker({
+                startDate: date,
+                //weekStart: 6,
+                autoclose: true,
+                todayHighlight: true
+            });
+
+
+
+        });
+
+    </script>
+}
+

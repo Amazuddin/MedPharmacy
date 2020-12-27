@@ -1,0 +1,182 @@
+﻿@model MedPharmacy.Models.Register
+
+@{
+    //Layout = null;
+}
+
+<meta name="viewport" content="width=device-width"/>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>Edit</title>
+<style>
+    .ll {
+        margin-top: 50px;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .klr {
+        margin-top: 50px;
+    }
+   
+</style>
+<body>
+
+    <div class="container ll">
+        <center>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="warning" style="background-color: gray;" id="warningLabel">
+                    <label>@ViewBag.Message</label>
+                </div>
+            }
+
+        </center>
+        <center>
+            <h1 style="margin-bottom: 30px;">Edit Pharmacy Information</h1>
+        </center>
+        <div class="row">
+           
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+
+
+                @using (Html.BeginForm("Edit", "PharmacyAdmin", FormMethod.Post, new {name = "myform", id = "myform", enctype = "multipart/form-data"}))
+                {
+                    @Html.AntiForgeryToken()
+
+
+
+
+                    @Html.ValidationSummary(true)
+
+
+                    <div class="form-group row">
+                        <div class="col-md-2"></div>
+                        @Html.LabelFor(model => model.PharmacyName, new {@class = "control-label col-md-2", style = "font-size: 20px;"})
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.PharmacyName, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.PharmacyName)
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-2"></div>
+                        @Html.LabelFor(model => model.Address, new {@class = "control-label col-md-2", style = "font-size: 20px;"})
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Address, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.Address)
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-2"></div>
+                        @Html.LabelFor(model => model.PhoneNo, new {@class = "control-label col-md-2", style = "font-size: 20px;"})
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.PhoneNo, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.PhoneNo)
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-2"></div>
+                        @Html.LabelFor(model => model.Email, new {@class = "control-label col-md-2", style = "font-size: 20px;"})
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Email, new {htmlAttributes = new {@class = "form-control aa"}})
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+
+                    @*<div class="form-group row">
+                        <div class="col-md-2"></div>
+                        @Html.LabelFor(model => model.Password, new {@class = "control-label col-md-2", style = "font-size: 20px;"})
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @Value = "" } })
+                            @Html.ValidationMessageFor(model => model.Password)
+                        </div>
+                    </div>*@
+
+                    <div class="form-group row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-offset-2 col-md-8">
+                            <center>
+
+                                <input type="submit" value="Update" class="btn btn-default" style="background-color: #007bff; width: 150px; color: white" />
+                            </center>
+                        </div>
+                    </div>
+
+                }
+
+                <center>
+                    <div>
+                        @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-success klr"})
+                    </div>
+                </center>
+            </div>
+
+            <div class="col-md-1"></div>
+        </div>
+        </div>
+</body>
+
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $("#warningLabel").hide(1000).empty();
+            }, 5000);
+        });
+        $("#myform").validate({
+            rules: {
+                PharmacyName: "required",
+                Email: {
+                    required: true,
+                    email: true
+                },
+                Password: {
+                    required: true,
+                    minlength: 6
+                },
+
+                Address: {
+                    required: true
+
+                },
+                PhoneNo:
+                {
+                    required: true,
+                    number: true
+                }
+
+
+            },
+            messages: {
+                PharmacyName: "Please Enter Pharmacy Name",
+                Email: {
+                    required: "Please Enter A New Email id",
+                    email: "Email id not correct"
+                },
+                Password: {
+                    required: "Please Enter Password",
+                    minlength: "Minimum length is 6"
+                },
+
+                Address: "Please Enter Address",
+                PhoneNo:
+                {
+                    required: "Please Enter Your MobileNo",
+                    number: "Must be number"
+                }
+
+            }
+
+        });
+    </script>
+}

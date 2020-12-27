@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title MedToDoor</title>
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="~/Content/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <link href="//db.onlinewebfonts.com/c/7cc6719bd5f0310be3150ba33418e72e?family=Comic+Sans+MS" rel="stylesheet" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+    <style>
+        .navfont {
+            font-family: Comic Sans MS;
+        }
+    </style>
+</head>
+<body>
+
+    <nav style="background-color: blueviolet;" class="navbar navbar-expand-lg navbar-dark">
+        <a class="animated bounceInDown navbar-brand myclass" href="#">
+            <i class="logo1 fogo fas fa-capsules"> </i>
+           MedToDoor
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="menual collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+
+           @if (Session["AdminId"] == null && Session["PharmacyId"] == null)
+           {
+                <div class="navbar-nav navfont">
+                 <a class="nav-item nav-link @ViewBag.HomeIndex" href="@Url.Action("HomeIndex", "Medicine")">Home <span class="sr-only">(current)</span></a>
+                 <a class="nav-item nav-link @ViewBag.MedicineSearch" href="@Url.Action("MedicineSearch", "Medicine")">Medicine</a>
+                 <a class="nav-item nav-link @ViewBag.Category" href="@Url.Action("Category", "Medicine")">Category</a>
+                 <a  class="nav-item nav-link @ViewBag.Informations" href="@Url.Action("Informations", "Medicine")">Information</a>
+                    <a class="nav-item nav-link @ViewBag.Contact" href="@Url.Action("Contact", "Medicine")">Contact</a>
+                    <a class="nav-item nav-link @ViewBag.MedicineSuggestion" href="@Url.Action("MedicineSuggestion", "Medicine")">MedicineSuggestion</a>
+                 <a  class="nav-item nav-link  @ViewBag.Login" href="@Url.Action("Login", "UserLogin")">Login</a>
+                 <a  class="nav-item nav-link  @ViewBag.Registration" href="@Url.Action("Registration", "UserLogin")">Register</a>
+                 </div>
+           }
+            else if (Session["PharmacyId"] != null)
+            {
+                <div class="navbar-nav navfont">
+                 <a class="nav-item nav-link @ViewBag.HomeIndex" href="@Url.Action("HomeIndex", "Medicine")">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-item nav-link @ViewBag.MedicineSearch" href="@Url.Action("MedicineSearch", "Medicine")">Medicine</a>
+                 <a  class="nav-item nav-link @ViewBag.AddMedicine" href="@Url.Action("AddMedicine", "Medicine")">AddMedicine</a>
+                 <a  class="nav-item nav-link @ViewBag.Contact" href="@Url.Action("Contact", "Medicine")">Contact</a>
+                 <a  class="nav-item nav-link  @ViewBag.PatientProfile" href="@Url.Action("Profile", "Medicine")">Profile</a>
+                 <a  class="nav-item nav-link " href="@Url.Action("PharmacyLogout", "UserLogin")">Logout</a>
+                </div>
+            }
+            else if (Session["AdminId"] != null)
+             {
+                <div class="navbar-nav navfont">
+                    <a class="nav-item nav-link @ViewBag.HomeIndex" href="@Url.Action("HomeIndex", "Medicine")">Home <span class="sr-only">(current)</span></a>
+                    <a  class="nav-item nav-link @ViewBag.Index" href="@Url.Action("Index", "PharmacyAdmin")">PharmacyList</a>
+                    <a  class="nav-item nav-link @ViewBag.AddMedicine" href="@Url.Action("SendEmail", "PharmacyAdmin")">Email</a>
+                    <a  class="nav-item nav-link @ViewBag.Notification" href="@Url.Action("Notification", "PharmacyAdmin")">Feedback</a>
+                    <a class="nav-item nav-link @ViewBag.CustomerOrderList" href="@Url.Action("CustomerOrderList", "PharmacyAdmin")">OrderList</a>
+                    <a class="nav-item nav-link @ViewBag.graph" href="@Url.Action("Graph", "PharmacyAdmin")">Graph</a>
+                    <a  class="nav-item nav-link " href="@Url.Action("AdminLogout", "UserLogin")">Logout</a>
+                </div>
+             }
+                </div>
+    </nav>
+
+    @RenderBody()
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+
+            <h3>MedTo<span>Door</span><i style="font-size: 47px;" class="logo fas fa-capsules"></i></h3>
+
+            <p class="footer-links" style="font-family: Comic Sans MS">
+                We are dedicate to providing the best possible<br> Transport service for the Students,teacher,official to get better Service.
+            </p>
+
+            <p style="font-family: Comic Sans MS" class="footer-company-name">2020</p>
+        </div>
+
+        <div class="footer-center">
+
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p style="font-family: Comic Sans MS">Chandanaish, Chittagong</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p style="font-family: Comic Sans MS">+01620626398</p>
+            </div>
+
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p style="font-family: Comic Sans MS"><a href="#" style="color: white">medtodoor@gmail.com</a></p>
+            </div>
+
+        </div>
+
+        <div class="footer-right">
+
+            <p style="font-family: Comic Sans MS" class="footer-company-about">
+                <span>About the company</span>
+                MEDTODOOR
+            </p>
+
+            <div class="footer-icons">
+
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)

@@ -1,0 +1,267 @@
+﻿@{
+    //Layout = null;
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/fontawesome-all.min.css" rel="stylesheet" />
+   
+    <link href="~/Content/aos.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="//db.onlinewebfonts.com/c/7cc6719bd5f0310be3150ba33418e72e?family=Comic+Sans+MS" rel="stylesheet" type="text/css" />
+    <link href="http://allfont.net/allfont.css?fonts=josefin-sans" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=BioRhyme' rel='stylesheet'>
+    <title>Category</title>
+    <style>
+        .site-blocks-cover {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: relative;
+        }
+
+            .site-blocks-cover, .site-blocks-cover > .container > .row {
+                min-height: 700px;
+                height: calc(100vh);
+            }
+
+                .site-blocks-cover.inner-page, .site-blocks-cover.inner-page .row {
+                    min-height: 400px;
+                    height: 700px;
+                }
+
+        @@media (max-width: 991.98px) {
+            .site-blocks-cover .featured-hero-product {
+                margin-top: 10%;
+                position: absolute;
+            }
+        }
+
+        .site-blocks-cover h1 {
+            font-size: 80px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 30px;
+            /*text-transform: uppercase;*/
+        }
+
+        @@media (min-width: 768px) {
+            .site-blocks-cover h1 {
+                font-size: 70px;
+            }
+        }
+
+        .site-blocks-cover h1:hover {
+            color: yellow;
+        }
+
+
+
+        .site-blocks-cover.inner-page .site-block-cover-content {
+            margin-top: 20%;
+            text-align: center;
+        }
+
+        @@media (min-width: 768px) {
+            .site-blocks-cover.inner-page .site-block-cover-content {
+                margin-top: 30%;
+            }
+        }
+
+
+
+        @@media (max-width: 991.98px) {
+            .site-blocks-cover .img-1 {
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+
+
+
+        .dia-center {
+            height: 440px;
+            margin: 10px;
+            padding: 0px;
+            text-align: center;
+            box-shadow: 0px 0px 0px #888888;
+        }
+
+            .dia-center:hover {
+                box-shadow: -1px 2px 18px #526152;
+            }
+
+        #services {
+            font-size: 50px;
+            border-bottom-style: ridge;
+            font-weight: bold;
+            border-bottom-style: black;
+            margin-top: 15px;
+        }
+
+        .diagnostic-img {
+            width: 100%;
+            height: 320px;
+        }
+
+        .diagnoistic_name {
+            font-size: 16px;
+            margin-top: 5px;
+            padding: 10px;
+            text-align: center;
+            /*height: inherit;*/
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="site-blocks-cover" style="background-image: url('../picture/in.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
+                    <div class=" animated flipInY site-block-cover-content text-center">
+
+                        <h1 style="font-family: Josefin Sans; ">Medicine Category</h1>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-bottom: 50px;">
+        <div class="Sclass">
+            <center>
+                <div class="animated flipInY">
+                    <strong id="services" style="color: blueviolet; font-family: BioRhyme">Medicine Category</strong>
+                </div>
+
+            </center>
+
+
+        </div>
+    </div>
+
+
+    <div class="container" style="margin-bottom: 80px;">
+        <div class="row" data-aos="flip-left"
+             data-aos-easing="ease-out-cubic"
+             data-aos-duration="2300">
+
+
+            <div class="col-md-4">
+                <a style="text-decoration: none;" href="@Url.Action("Medicineshow", "Medicine")">
+                    <div class="dia-center">
+
+                        <img src="~/picture/fever.png" class="rounded-circle diagnostic-img">
+                        <div class="diagnoistic_name">
+                            <h2 style="font-family: BioRhyme">
+                                Fever Medicine
+                            </h2>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+
+
+
+
+            <div class="col-md-4">
+                <a style="text-decoration: none;" href="@Url.Action()">
+                    <div class="dia-center">
+
+                        <img src="~/picture/heart.jpg" class="rounded-circle diagnostic-img">
+                        <div class="diagnoistic_name">
+                            <h2 style="font-family: BioRhyme">
+                                Heart Medicine
+                            </h2>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a style="text-decoration: none;" href="@Url.Action()">
+                    <div class="dia-center">
+
+                        <img src="~/picture/lung.jpg" class="rounded-circle diagnostic-img">
+                        <div class="diagnoistic_name">
+                            <h2 style="font-family: BioRhyme">
+                                Lung Medicine
+                            </h2>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="row" data-aos="flip-left"
+             data-aos-easing="ease-out-cubic"
+             data-aos-duration="2300">
+
+
+            <div class="col-md-4">
+                <a style="text-decoration: none;" href="@Url.Action()">
+                    <div class="dia-center">
+
+                        <img src="~/picture/daa.jpg" class=" rounded-circle diagnostic-img">
+                        <div class="diagnoistic_name">
+                            <h2 style="font-family: BioRhyme">
+                                Diabetic Medicine
+                            </h2>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+
+
+
+
+            <div class="col-md-4">
+                <a style="text-decoration: none;" href="@Url.Action()">
+                    <div class="dia-center">
+
+                        <img src="~/picture/can.jpg" class="rounded-circle diagnostic-img">
+                        <div class="diagnoistic_name">
+                            <h2 style="font-family: BioRhyme">
+                                Cancer Medicine
+                            </h2>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a style="text-decoration: none;" href="@Url.Action()">
+                    <div class="dia-center">
+
+                        <img src="~/picture/lever.jpg" class="rounded-circle diagnostic-img">
+                        <div class="diagnoistic_name">
+                            <h2 style="font-family: BioRhyme">
+                                Lever Medicine
+                            </h2>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/aos.js"></script>
+    <script>
+
+        AOS.init();
+    </script>
+</body>

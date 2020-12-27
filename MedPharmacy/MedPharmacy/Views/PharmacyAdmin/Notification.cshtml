@@ -1,0 +1,140 @@
+﻿@using MedPharmacy.Models
+
+
+
+@{
+    //Layout = null;
+    var i = 1;
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MedicineSearch</title>
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/aos.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <link href="//db.onlinewebfonts.com/c/7cc6719bd5f0310be3150ba33418e72e?family=Comic+Sans+MS" rel="stylesheet" type="text/css" />
+    <link href="http://allfont.net/allfont.css?fonts=josefin-sans" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=BioRhyme' rel='stylesheet'>
+    <style>
+        .tdname {
+            font-size: 20px;
+            padding-right: 14px;
+        }
+
+        .tdvalue {
+            width: 237px;
+            border: 2px solid #2c3e50;
+            border-radius: 10px;
+            height: 40px;
+            margin-top: 10px;
+        }
+
+        #tddate {
+            width: 237px;
+            border: 2px solid #2c3e50;
+            border-radius: 10px;
+            height: 40px;
+            margin-top: 10px;
+        }
+
+        .bye {
+            margin-top: 50px;
+            margin-bottom: 70px;
+        }
+
+        .up {
+            margin-top: 50px;
+        }
+
+        .but {
+            float: right;
+            width: 130px;
+            margin-top: 18px;
+            background-color: #3ea5c1;
+            border-color: #3ea5c1;
+        }
+
+        .bodydesign {
+            font-family: Josefin Sans;
+            font-weight: bold;
+        }
+
+        .headdesign {
+            font-family: BioRhyme;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <h1 style="margin-top: 60px; color: blue; font-family: BioRhyme">
+                Problems & Suggetions
+            </h1>
+        </center>
+        <div class="row bye" data-aos="fade-down"
+             data-aos-easing="linear"
+             data-aos-duration="1500">
+            <div class="col-md-12 design">
+                <table class="table table-bordered table-striped table-hover" id="medicinetable">
+                    <thead class="headdesign">
+                        <tr>
+                            <th>Serial No.</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody" class="bodydesign">
+                       
+                        
+                           
+                     @foreach (Contact d in Model)
+                    {
+
+                        <tr>
+                            <td>@i</td>
+                            <td>@d.FirstName</td>
+                            <td>@d.LastName</td>
+                            <td>@d.Email</td>
+                            <td>@d.Subject</td>
+                            <td>@d.Message</td>
+
+                        </tr>
+                        i = i + 1;
+
+                    }
+                        
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/aos.js"></script>
+    <script>
+
+        AOS.init();
+    </script>
+</body>
+@section scripts
+{
+
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $('#medicinetable').DataTable();
+        });
+    </script>
+}

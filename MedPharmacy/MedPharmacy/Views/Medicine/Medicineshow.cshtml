@@ -1,0 +1,238 @@
+﻿@{
+    Layout = null;
+}
+<html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/aos.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="//db.onlinewebfonts.com/c/7cc6719bd5f0310be3150ba33418e72e?family=Comic+Sans+MS" rel="stylesheet" type="text/css" />
+    <link href="http://allfont.net/allfont.css?fonts=josefin-sans" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=BioRhyme' rel='stylesheet'>
+    <title>Medicineshow</title>
+    <style>
+        .t_med {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-family: BioRhyme;
+        }
+
+        #ourmed {
+            font-size: 48px;
+            border-bottom-style: ridge;
+            font-weight: bold;
+            border-bottom-style: black;
+            color: #3ea5c1;
+        }
+
+            #ourmed:hover {
+                color: black;
+            }
+
+
+
+        .testdiv {
+            height: 380px;
+            margin: 10px;
+            padding: 0px;
+            text-align: center;
+            box-shadow: -1px 2px 18px #526152;
+        }
+
+        .test-image {
+            width: 100%;
+            height: 245px;
+        }
+
+        .testdiv:hover {
+            box-shadow: 0px 1px 1px #888888;
+        }
+
+        .me-test {
+            height: 102px;
+            margin-bottom: 5px;
+        }
+
+        .h3testdesign {
+            font-size: 18px;
+            color: #d60404;
+            margin-top: 16px;
+        }
+
+        .testnamegive {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .buttonapply {
+            font-size: 14px;
+            color: #fff;
+            background: #20809a;
+            text-decoration: none;
+            position: relative;
+            border: none;
+            border-radius: 0;
+            width: 45%;
+            text-transform: uppercase;
+            padding: 11px;
+            outline: none;
+            letter-spacing: 1px;
+            font-weight: 600;
+            height: 43px;
+            font-family: Comic Sans MS;
+        }
+
+            .buttonapply:hover {
+                background-color: #333;
+            }
+
+
+        .tryyorself {
+            box-shadow: 0px 0px 15px 0px #BDBDBD;
+            padding: 30px 20px;
+            margin-bottom: 14px;
+        }
+
+        a, h3 {
+            font-family: Josefin Sans;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="t_med">
+            <center>
+                <strong id="ourmed">Fever Medicine</strong>
+            </center>
+        </div><br>
+
+
+        <div class="tryyorself">
+
+            <div class="row" >
+                <div class="col-md-3" data-aos="fade-up-right" data-aos-duration="2200">
+                    <div class="testdiv">
+                        <img class="test-image" src="~/picture/fev1.jpg">
+                        <div class="me-test">
+                            <h3 class="testnamegive">
+                                <b>Paracetamol</b>
+                            </h3>
+                            <h3 class="h3testdesign"> 30 BDT</h3>
+                            <a href="@Url.Action("Order", "Medicine", new {data = "Paracetamol", data2 = "30"})"><input class="buttonapply" data-toggle="popover" type="submit" name="submit" value="Buy"></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up-right" data-aos-duration="2200">
+                    <div class="testdiv">
+                        <img class="test-image" src="~/picture/fev2.jpg">
+                        <div class="me-test">
+                            <h3 class="testnamegive">
+                                <b>Ace</b>
+                            </h3>
+                            <h3 class="h3testdesign"> 20 BDT</h3>
+                            <a href="@Url.Action("Order", "Medicine", new {data = "Ace"})"><input class="buttonapply" data-toggle="popover" type="submit" name="submit" value="Buy"></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up-right" data-aos-duration="2200">
+                    <div class="testdiv">
+                        <img class="test-image" src="~/picture/fev3.jpg">
+                        <div class="me-test">
+                            <h3 class="testnamegive">
+                                <b>Napa Extend</b>
+                            </h3>
+                            <h3 class="h3testdesign"> 30 BDT</h3>
+                            <a href="@Url.Action("Order", "Medicine", new {data = "Napa Extend"})"><input class="buttonapply" data-toggle="popover" type="submit" name="submit" value="Buy"></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up-right" data-aos-duration="2200">
+                    <div class="testdiv">
+                        <img class="test-image" src="~/picture/fev4.jpg">
+                        <div class="me-test">
+                            <h3 class="testnamegive">
+                                <b>Acetram</b>
+                            </h3>
+                            <h3 class="h3testdesign"> 40 BDT</h3>
+                            <a href="@Url.Action("Order", "Medicine", new {data = "Acetram"})"><input class="buttonapply" data-toggle="popover" type="submit" name="submit" value="Buy"></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up-left" data-aos-duration="2200">
+                    <div class="testdiv">
+                        <img class="test-image" src="~/picture/fev5.png">
+                        <div class="me-test">
+                            <h3 class="testnamegive">
+                                <b>Nimesulide</b>
+                            </h3>
+                            <h3 class="h3testdesign"> 30 BDT</h3>
+                            <a href="@Url.Action("Order", "Medicine", new {data = "Nimesulide"})"><input class="buttonapply" data-toggle="popover" type="submit" name="submit" value="Buy"></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up-left" data-aos-duration="2200">
+                    <div class="testdiv">
+                        <img class="test-image" src="~/picture/fev6.jpg">
+                        <div class="me-test">
+                            <h3 class="testnamegive">
+                                <b>Anaprox</b>
+                            </h3>
+                            <h3 class="h3testdesign"> 20 BDT</h3>
+                            <a href="@Url.Action("Order", "Medicine", new {data = "Anaprox"})"><input class="buttonapply" data-toggle="popover" type="submit" name="submit" value="Buy"></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up-left" data-aos-duration="2200">
+                    <div class="testdiv">
+                        <img class="test-image" src="~/picture/fev7.jpg">
+                        <div class="me-test">
+                            <h3 class="testnamegive">
+                                <b>Ecotrin</b>
+                            </h3>
+                            <h3 class="h3testdesign"> 30 BDT</h3>
+                            <a href="@Url.Action("Order", "Medicine", new {data = "Ecotrin"})"><input class="buttonapply" data-toggle="popover" type="submit" name="submit" value="Buy"></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up-left" data-aos-duration="2200">
+                    <div class="testdiv">
+                        <img class="test-image" src="~/picture/fev8.jpg">
+                        <div class="me-test">
+                            <h3 class="testnamegive">
+                                <b>Advil Capsule</b>
+                            </h3>
+                            <h3 class="h3testdesign"> 20 BDT</h3>
+                            <a href="@Url.Action("Order", "Medicine", new {data = "Advil Capsule"})"><input class="buttonapply" data-toggle="popover" type="submit" name="submit" value="Buy"></a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div><br><br>
+    </div>
+    <script src="~/Scripts/aos.js"></script>
+    <script>
+
+        AOS.init();
+    </script>
+</body>
+</html>
